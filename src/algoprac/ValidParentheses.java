@@ -17,24 +17,31 @@ public class ValidParentheses {
 					stack.push(c);
 					break;
 				case ')':
-					if(stack.peek()=='('&&stack.isEmpty()!=false) {
-						stack.pop();
+					if(stack.isEmpty()==false) {
+                        if(stack.peek()=='(')
+						    stack.pop();
 					}
                     else{
                         stack.push(c);
                     }
 					break;
 				case']':
-					if(stack.peek()=='['&&stack.isEmpty()!=false) {
-						stack.pop();
+					if(stack.isEmpty()==false) {
+                        if(stack.peek()=='[')
+						    stack.pop();
+                        else
+                            stack.push(c);
 					}
                     else{
                         stack.push(c);
                     }
 					break;
 				case '}':
-					if(stack.peek()=='{'&&stack.isEmpty()!=false) {
-						stack.pop();
+					if(stack.isEmpty()==false) {
+                        if(stack.peek()=='{')
+						    stack.pop();
+                        else
+                            stack.push(c);
 					}
                     else{
                         stack.push(c);
