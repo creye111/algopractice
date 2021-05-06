@@ -13,6 +13,7 @@ public class MergeSortedLists {
 	}
 	public ListNode mergeSortLists(ListNode list1, ListNode list2) {
 		ListNode resList = new ListNode();
+		ListNode head = new ListNode();
 		int counter =0;
 		while(list1.next != null&&list2.next!=null) {
 			if(counter==0){
