@@ -1,57 +1,39 @@
-package algoprac;
-
-public class MergeSortedLists {
-	public class ListNode {
-		public int val;
-		public ListNode next=null;
-		public ListNode(int val, ListNode next) {
-			this.val = val;
-			this.next = next;
-		}
-		public ListNode() {
-		}
-	}
-	public ListNode mergeSortLists(ListNode list1, ListNode list2) {
-		ListNode resList = new ListNode();
-		ListNode head = new ListNode();
-		int counter =0;
-		while(list1.next != null&&list2.next!=null) {
-			if(counter==0){
-				if (list1.val<list2.val) {	
-					resList =list1;
-					list1 = list1.next;
-				}else if (list1.val>list2.val) {
-					resList = list2;
-					list2= list2.next;
-				}else {
-					resList =list1;
-					list1 = list1.next;
-				}
-			}
-			else {
-				if (list1.val<list2.val) {	
-					resList.next =list1;
-					list1 = list1.next;
-					resList = resList.next;
-				}else if (list1.val>list2.val) {
-					resList.next = list2;
-					list2= list2.next;
-				}else {
-					resList.next =list1;
-					list1 = list1.next;
-					resList = resList.next;
-				}
-			}
-			counter++;
-		}
-		if(list1.next ==null) {
-			
-		} else if (list2.next==null) {
-			
-		}
-		else {
-			
-		}
-		return resList;
-	}
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode head = new ListNode(0);
+        ListNode nextNode = head;
+        while(l1 != null && l2 !=null){
+            if(l1.val < l2.val){
+                System.out.println(""+l1.val);
+                nextNode.next = l1;
+                l1 = l1.next;
+            }
+            else{
+                System.out.println(""+l2.val);
+                nextNode.next = l2;
+                l2=l2.next;
+            }
+            nextNode = nextNode.next;
+        }
+        if(l2!=null){
+            nextNode.next = l2;
+        }
+        else if (l1!= null){
+            nextNode.next=l1;
+        }
+        else{
+            return head.next;
+        }
+        return head.next;
+    }
 }
