@@ -12,30 +12,42 @@ package algoprac;
  * }
  */
 public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        boolean aEmpty = false;
-        boolean bEmpty = false;
-        while(headA!null&&headB!=null){
-            if(headA.next!=null){
-                headA = headA.next;
-            }else{
-                aEmpty = true;
-                break;
-            }
-            if(headB.next!=null){
-                headB = headB.next;
-            }
-            else{
-                bEmpty=true;
-                break;
-            }
-        }   
-        if(aEmpty&&bEmpty){
-            
-        }else if(aEmpty && !bEmpty){
-            
-        }else if(!aEmpty &&bEmpty){
-            
-        }
-    }
+	/**
+	 * Definition for singly-linked list.
+	 * public class ListNode {
+	 *     int val;
+	 *     ListNode next;
+	 *     ListNode(int x) {
+	 *         val = x;
+	 *         next = null;
+	 *     }
+	 * }
+	 */
+	public class Solution {
+	    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+	        ListNode cursor = headA;
+	        ListNode inter = null;
+	        while(cursor!=null){
+	            cursor.val = cursor.val *-1;
+	            cursor = cursor.next;
+	        }
+	        
+	        cursor =headB;
+	        
+	        while(cursor !=null){
+	            if(cursor.val<=0){
+	                inter = cursor;
+	                break;
+	            }
+	            cursor = cursor.next;
+	        }
+	        cursor = headA;
+	        while(cursor!=null){
+	            cursor.val *= -1;
+	            cursor= cursor.next;
+	        }
+	        
+	        return inter;
+	    }
+	}
 }
