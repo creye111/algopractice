@@ -2,7 +2,7 @@ package algoprac;
 
 public class LinkedListCyle {
 	public boolean hasCycle(ListNode head) {
-		int s;
+
         ListNode start = head;
         ListNode p = null;
         ListNode q = null;
