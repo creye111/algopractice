@@ -25,7 +25,7 @@ public class SelectionSort {
 		return resInd;
 	}
 	public static void main(String args[]) {
-		int []test = {4,4,4,3,2,8,6,4,234,62546,1346,99,100,17,1,1,1,1,755,234561,12513,4};
+		int []test = {2,3,1,-20,44,432,-100};
 		System.out.print("(");
 		for (int i:test)
 			System.out.print(i+", ");
